@@ -1,4 +1,4 @@
-import React from "react";
+// import useState from "react";
 import { GiConfirmed } from "react-icons/gi";
 import { RiImageAddFill } from "react-icons/ri";
 import { MdOutlineAddBox } from "react-icons/md";
@@ -26,10 +26,18 @@ const Card = () => {
         checked: false,
     },
   ];
+
+  // #For future
+  // const [state, setState] = useState(false);
+  // let toggleCheck = (i) => {
+  //   arr[i].checked = !state;
+  //   setState(!state)
+  // }
   const list = arr.map((e, i) => {
+   
     return (
-      <div className="flex mt-2">
-        <input checked={e.checked} type="checkbox" name={i} id={i} className="w-6"/>
+      <div className="flex mt-2 items-center">
+        <input checked={e.checked} type="checkbox" name={i} id={i} className="w-6 h-6"/>
         <label htmlFor={i} className="ml-3 text-xl" style={{
           textDecoration : `${e.checked?"line-through":""}`,
         }}>
@@ -41,18 +49,18 @@ const Card = () => {
   });
 
   return (
-    <div className="bg-white w-[90vw] shadow-md rounded-lg p-4 mt-4">
+    <div className="bg-white max-w-xl shadow-md rounded-lg p-4 mt-4">
       <div className="flex flex-col">
         <div className="flex justify-between">
           <span className="text-2xl">Today's Work</span>
           <nav className="flex justify-evenly children:pl-4 children:text-2xl">
-            <button type="button">
+            <button type="button" className="hover:text-slate-600">
               <GiConfirmed />
             </button>
-            <button type="button">
+            <button type="button" className="hover:text-slate-600">
               <RiImageAddFill />
             </button>
-            <button type="button">
+            <button type="button" className="hover:text-slate-600">
               <MdOutlineAddBox />
             </button>
           </nav>
